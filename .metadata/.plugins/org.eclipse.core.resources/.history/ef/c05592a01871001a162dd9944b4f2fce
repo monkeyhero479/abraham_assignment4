@@ -1,0 +1,36 @@
+package abraham_problem1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+//I just nuked my whole project and started over let's hope it works this time
+public class DuplicateRemover {
+private String uniqueWords;
+
+public
+
+void remove(String dataFile) throws FileNotFoundException{
+	File x = new File(dataFile);
+	Scanner reader = new Scanner(x);
+	
+	
+	while(reader.hasNext()) {
+		String word;
+		word = reader.next();
+		word=word.toLowerCase();
+		if(uniqueWords.contains(word)) {
+			System.out.println("Here is a duplciate");
+		}else {
+			uniqueWords.concat(" " + word);
+		}
+	}
+	reader.close();
+	System.out.println(uniqueWords);
+	
+	
+	
+}
+
+
+
+}

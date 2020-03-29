@@ -1,0 +1,65 @@
+package abraham_problem2;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+import java.util.Set;
+
+public class DuplicateCounter {
+	private Integer wordCounter;
+	Map<String,Integer> list;
+	void count(String dataFile) throws NullPointerException, FileNotFoundException{
+		//Create All the objects below
+		list = new HashMap<String,Integer>();
+		File x = new File(dataFile);
+		Scanner reader = new Scanner(x);
+		while(reader.hasNext()) {
+			String word = reader.next();
+			wordCounter = list.get(word);
+			if(wordCounter!=null) {
+				list.put(word,wordCounter+1);
+				System.out.println("I think this works");
+			}else {
+				list.put(word,1);
+				System.out.println("Second strike");
+			}
+		}
+		reader.close();
+		}
+	
+	void write(String outputFile){
+		//Writing to a file with a hashmap might be tricky, do some more research into it later and come back
+		try {
+	    //Initialize everything here
+		list = new HashMap<String,Integer>();
+		FileWriter blah = new FileWriter(outputFile);
+		BufferedWriter author = new BufferedWriter(blah);
+		int tick = 0;
+		
+		Iterator<Entry<String,Integer>> goon = list.entrySet().iterator();
+		//have to use goon not list or the loops
+		while(goon.hasNext() && tick<wordCounter) {//need to work on relevant naming schemes for the variables cuz this is getting overwhelming
+			Map.Entry<String,Integer> variablexx = goon.next();
+			System.out.println("Please work " + variablexx.getValue());
+			author.write("\n" + variablexx.getValue());
+			tick++;
+		}
+		author.close();
+		}catch(IOException e) {
+			System.out.println("You have an IOException on your hands.");
+		}
+		
+		}
+		}
+
+

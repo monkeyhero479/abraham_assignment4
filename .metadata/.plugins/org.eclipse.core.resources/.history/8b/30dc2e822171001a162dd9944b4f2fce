@@ -1,0 +1,47 @@
+package abraham_problem1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.Set;
+//I just nuked my whole project and started over let's hope it works this time
+public class DuplicateRemover {
+Set<String> uniqueWords=null;
+
+void remove(String dataFile) throws NullPointerException, FileNotFoundException{
+	//Create All the objects below
+	uniqueWords= new HashSet<String>();
+	File x = new File(dataFile);
+	Scanner reader = new Scanner(x);
+	String word =null;
+	String[] counter = null;
+	//Scanning portion of the code
+	
+	try{
+		while(reader.hasNext()){
+			word = reader.next().toLowerCase();
+			if(uniqueWords.contains(word)) {
+				System.out.println("Fuck");
+			}else {
+				uniqueWords.add(word);
+			}
+		}
+		System.out.println(uniqueWords);
+	}catch(NullPointerException e){
+		System.out.println("we got a null pointer exception on our hands");
+
+	}
+	if(reader!=null) {
+		reader.close();
+		
+		}
+	}
+	
+	
+	
+}
+
+
+

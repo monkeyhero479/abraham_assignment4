@@ -1,0 +1,51 @@
+package abraham_problem2;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class DuplicateCounter {
+	private Integer wordCounter;
+	
+	void count(String dataFile) throws NullPointerException, FileNotFoundException{
+		//Create All the objects below
+		Map<String,Integer> list = new HashMap<String,Integer>();
+		File x = new File(dataFile);
+		Scanner reader = new Scanner(x);
+		while(reader.hasNext()) {
+			String word = reader.next();
+			wordCounter = list.get(word);
+			if(wordCounter!=null) {
+				list.put(word,wordCounter+1);
+				System.out.println("cunt");
+			}else {
+				list.put(word,1);
+				System.out.println("fuck you");
+			}
+		}
+		reader.close();
+		}
+	
+	void write() {
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}
+
